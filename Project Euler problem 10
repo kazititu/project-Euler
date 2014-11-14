@@ -1,0 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package eulerproblem10;
+
+/**
+ *
+ * @author blades of Aragon
+ */
+import java.math.*;
+public class EulerProblem10 {
+
+    /**
+     * Summation of primes under two million
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int N=2000000;
+        long sum=0L;
+        boolean [] isPrime= new boolean[N+1];
+        //Assuming all the numbers are prime
+        for(int i=2;i<=N;i++){
+            isPrime[i]=true;
+        }
+        //Determine all the non prime numbers
+        for(int i=2;i<=Math.sqrt(N);i++){
+            if(isPrime[i]){
+               for(int j=i;i*j<=N;j++){
+                  isPrime[i*j]=false;
+               
+               
+               }
+            
+            }
+        
+        }
+        
+        //Sum up all the  prime nUmbers
+           for(int i=2;i<=N;i++){
+              if(isPrime[i]){
+                 
+                //System.out.println("primes under two million "+ i);
+                sum+=i;
+            }  
+               
+        }
+           System.out.println("Sum of primes under two million  "+ sum);
+    }
+ }
